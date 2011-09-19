@@ -2,3 +2,135 @@
   margin:  0px;
   padding: 0px;
 }
+
+body {
+  font-family: "Droid Sans", Arial, sans-serif;
+}
+
+a:link { color: $tag-bg; text-decoration: none; }
+a:visited { color: darken($tag-bg, 15%); }
+a:active, a:hover  { color: darken($tag-bg, 10%); text-decoration: underline; }
+
+
+div#header {
+  position: fixed;
+  z-index:  1000;
+  top:  0px;
+  left: 0px;
+  height: 35px;
+  width: 100%;
+  backgorund-color: #222;
+  @include background-gradient(#333, #222);
+  @include box-shadow(inset 0 -1px 0 rgba(0, 0, 0, 0.1));
+  color: #eee;
+
+  .centered {
+    h2 {
+      font-weight: normal;
+      font-size: 24px;
+      display: inline;
+    }
+
+    h3 {
+      font-style: italic;
+      font-weight: normal;
+      font-size: 12px;
+      display: inline;
+      margin-left: 5px;
+    }
+
+    padding: 4px 6px;
+  }
+
+  a {
+    color: #eee;
+    text-decoration: none;
+  }
+}
+
+.centered {
+  width: 960px;
+  margin: 0 auto;
+}
+
+div#home-box {
+  background: $code-bg;
+  border: 1px solid darken($code-bg, 10%);
+  margin: 20px 0px;
+  padding: 20px;
+  @include border-radius(5px);
+
+  p + p {
+    margin-top: 10px;
+  }
+
+  a {
+    font-size: 13px;
+  }
+}
+
+div#container {
+  width: 100%;
+  position: absolute;
+  padding-top: 30px;
+}
+
+.tag {
+  font-size: 85%;
+  padding: 3px;
+  background-color: $tag-bg;
+  color: #fff;
+  @include border-radius(3px);
+}
+
+table#posts-table {
+  $table-radius: 5px;
+
+  border-collapse: separate;
+  *border-collapse: collapse;
+  border: 1px solid $border;
+  border-spacing: 0px;
+  @include border-radius($table-radius);
+
+  th, td {
+    padding: 10px 10px 9px 9px; /* Less padding on the border sides. */
+    vertical-align: top;
+  }
+
+  /* Apply a left border to any cell with a cell beside it. */
+  th + th,
+  td + td {
+    border-left: 1px solid $border;
+  }
+
+  /* Apply a top border to any cell with a row above it. */
+  tr + tr td {
+    border-top: 1px solid $border;
+  }
+
+  /* Apply rounded borders to the corners. */
+  tbody tr:first-child td:first-child {
+    @include border-radius($table-radius 0px 0px 0px);
+  }
+
+  tbody tr:last-child td:first-child {
+    @include border-radius(0px 0px 0px $table-radius);
+  }
+
+  tbody tr:first-child td:last-child {
+    @include border-radius(0px $table-radius 0px 0px);
+  }
+
+  tbody tr:last-child td:last-child {
+    @include border-radius(0px 0px $table-radius 0px);
+  }
+
+  tbody {
+    tr:nth-child(odd) {
+      background-color: $alternate;
+    }
+    tr:hover {
+      background-color: $code-bg;
+    }
+  }
+}

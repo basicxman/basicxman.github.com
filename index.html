@@ -3,6 +3,30 @@ layout: application
 title: "Andrew Horsman"
 ---
 
-{% for post in site.posts %}
-  <a href="{{ post.url }}">{{ post.title }}</a><br />
-{% endfor %}
+<div id="home-box">
+  <p>
+    Welcome to a collection of ramblings and articles on robotics, education, Ruby and technology.
+  </p>
+  <p>
+    <a href="http://github.com/basicxman" title="basicxman on GitHub" target="_blank">GitHub</a> /
+    <a href="http://twitter.com/basicxman" title="basicxman on Twitter" target="_blank">Twitter</a> /
+    <a href="http://ca.linkedin.com/pub/andrew-horsman/24/35a/219" title="LinkedIn" target="_blank">LinkedIn</a> /
+    <a href="mailto:self@andrewhorsman.net" title="Email" target="_blank">Email</a>
+  </p>
+</div>
+
+<table id="posts-table">
+  <tbody>
+    {% for post in site.posts %}
+      <tr>
+        <td>{{ post.date | date_to_long_string }}</td>
+        <td><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></td>
+        <td>
+          {% for tag in post.tags %}
+            <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

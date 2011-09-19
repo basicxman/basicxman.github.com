@@ -8,14 +8,25 @@
 
     <title>{{ page.title }}</title>
 
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono" type="text/css" />
     <link rel="stylesheet" href="/application.css" type="text/css" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
 
   </head>
 
   <body>
 
-    <div id="content">
-      {{ content }}
+    <div id="header">
+      <div class="centered">
+        <h2><a href="/">Andrew Horsman</a></h2>
+        <h3>Programming - Ruby - OS X - Linux - Robots</h3>
+      </div>
+    </div>
+
+    <div id="container">
+      <div id="content" class="centered">
+        {{ content }}
+      </div>
     </div>
 
     <script type="text/javascript" src="/application.js"></script>
