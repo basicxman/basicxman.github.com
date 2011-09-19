@@ -21,8 +21,8 @@ title: Andrew Horsman
   <tbody>
     {% for post in site.posts %}
       <tr>
-        <td>{{ post.date | date_to_long_string }}</td>
-        <td><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></td>
+        <td class="date">{{ post.date | date_to_long_string }}</td>
+        <td class="title"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></td>
         <td>
           {% for tag in post.tags %}
             <span class="tag">{{ tag }}</span>
