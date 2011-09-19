@@ -83,7 +83,7 @@ div#container {
   @include border-radius(3px);
 }
 
-table#posts-table {
+table.striped {
   $table-radius: 5px;
 
   border-collapse: separate;
@@ -106,6 +106,10 @@ table#posts-table {
   /* Apply a top border to any cell with a row above it. */
   tr + tr td {
     border-top: 1px solid $border;
+  }
+
+  th {
+    border-bottom: 1px solid $border;
   }
 
   /* Apply rounded borders to the corners. */
