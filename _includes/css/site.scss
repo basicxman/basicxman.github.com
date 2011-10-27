@@ -5,12 +5,20 @@ body, div, span, table, tbody, thead, tr, td, th, h1, h2, h3, h4, p, pre, a, blo
 
 body {
   font-family: "Droid Sans", Arial, sans-serif;
+  background: #fff url(/images/subtle_freckles.png);
 }
 
 a:link { color: $tag-bg; text-decoration: none; }
 a:visited { color: darken($tag-bg, 15%); }
 a:active, a:hover  { color: darken($tag-bg, 10%); text-decoration: underline; }
 
+li code, p code {
+  padding: 1px 3px;
+  @include border-radius(3px);
+  background-color: #fee9cc;
+  font-family: "Droid Sans Mono";
+  font-size: 0.9em;
+}
 
 div#header {
   position: fixed;
@@ -69,16 +77,34 @@ div#home-box {
   }
 }
 
+@mixin header {
+  font-weight: normal;
+  color: darken($tag-bg, 50%);
+  margin: 20px 0px;
+  a.blog-header {
+    &:visited, &:link, &:hover, &:active {
+      text-decoration: none;
+      color: darken($tag-bg, 50%);
+    }
+  }
+}
+
+#current-header {
+  position: fixed;
+  z-index: 5;
+  top: 25px;
+  left: 10px;
+  font-size: 1.17em;
+  @include header;
+}
+
 .blog-post {
   margin-top: 20px;
+  width: 800px;
+  margin: 0 auto;
 
   h3, h2 {
-    font-weight: normal;
-    color: darken($tag-bg, 50%);
-  }
-
-  h2 {
-    margin: 10px 0px;
+    @include header;
   }
 
   blockquote {
@@ -89,6 +115,15 @@ div#home-box {
 
   p {
     margin: 10px 0px;
+    line-height: 1.7em;
+  }
+
+  li {
+    line-height: 1.7em;
+  }
+
+  .center-content {
+    text-align: center;
   }
 }
 
@@ -163,6 +198,13 @@ table.striped {
     tr:hover {
       background-color: $code-bg;
     }
+  }
+}
+
+table.small {
+  td {
+    line-height: 20px;
+    font-size: 15px;
   }
 }
 
